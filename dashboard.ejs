@@ -1,33 +1,17 @@
-<!-- dashboard.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/css/style1.css">
+    <title>Admin Dashboard</title>
 </head>
 <body>
-    <header>
-        <h1>User Dashboard</h1>
-        <form action="/logout" method="get">
-            <button type="submit" class="logout-button">Logout</button>
-        </form>
-    </header>
-
-    <p>Welcome, <%= user.name %>! You have applied for <%= applications.length %> jobs.</p>
-
+    <h2>Welcome to Admin Dashboard</h2>
     <ul>
-        <% applications.forEach(application => { %>
-            <li>
-                <h2><%= application.templateId.title %></h2>
-                <p><strong>Description:</strong> <%= application.templateId.description %></p>
-                <p><strong>Requirements:</strong> <%= application.templateId.requirements %></p>
-                <p>Applied on: <%= application.appliedAt.toDateString() %></p>
-            </li>
-        <% }) %>
+        <li><a href="/admin/addJob">Add Job</a></li>
+        <li><a href="/admin/deleteJob/:jobId">Delete Job</a></li>
+        <!-- Add more admin actions as needed -->
     </ul>
-
-    <a href="/templates">Back to Templates</a>
+    <a href="/logout">Logout</a>
 </body>
 </html>
